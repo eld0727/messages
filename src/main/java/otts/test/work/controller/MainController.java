@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import otts.test.work.messages.UserVisit;
+import otts.test.work.messages.UserVisitPage;
 import otts.test.work.util.QueueNames;
 
 /**
@@ -23,7 +23,7 @@ public class MainController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     String home() {
-        rabbitTemplate.convertAndSend(QueueNames.USER_VISIT_PAGE, new UserVisit(1));
+        rabbitTemplate.convertAndSend(QueueNames.USER_VISIT_PAGE, new UserVisitPage(1));
         return "Hello World!";
     }
 

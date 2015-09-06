@@ -9,14 +9,14 @@ import java.io.Serializable;
  * Message containing information which user visit page with messages.
  */
 
-public class UserVisit implements Serializable{
+public class UserVisitPage implements UserMessage, Serializable{
 
     /**
      * user id
      */
     private final int id;
 
-    public UserVisit(@JsonProperty("id") int id) {
+    public UserVisitPage(@JsonProperty("id") int id) {
         this.id = id;
     }
 
@@ -26,13 +26,19 @@ public class UserVisit implements Serializable{
      *
      * @return Value of user id.
      */
+    @Override
     public int getId() {
         return id;
     }
 
     @Override
+    public String presentation() {
+        return "User " + id + " visit page" ;
+    }
+
+    @Override
     public String toString() {
-        return "UserVisit{" +
+        return "UserVisitPage{" +
                 "id=" + id +
                 '}';
     }

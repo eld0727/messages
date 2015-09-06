@@ -5,7 +5,11 @@ package otts.test.work.util;
  * Button color
  */
 public enum ButtonColor {
-    Red("red", "#rr0000");
+    Red("Red", "#FF0000"),
+    Green("Green", "#00FF00"),
+    Blue("Blue", "#0000FF"),
+    Yellow("Yellow", "#FFFF00")
+    ;
     /**
      * Color name
      */

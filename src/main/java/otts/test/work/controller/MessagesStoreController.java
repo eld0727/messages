@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import otts.test.work.dto.MessageStoreState;
 import otts.test.work.messages.UserClickAnyButton;
 import otts.test.work.messages.UserClickColorButton;
-import otts.test.work.messages.UserVisitPage;
+import otts.test.work.messages.UserVisitsPage;
 import otts.test.work.service.MessagesStorageService;
 
 /**
@@ -33,9 +33,9 @@ public class MessagesStoreController {
 
     @RequestMapping(value = "/messages/visit", method = RequestMethod.POST)
     public void storeUserVisitPageMessage(
-        @RequestBody UserVisitPage userVisitPage
+        @RequestBody UserVisitsPage userVisitsPage
     ) {
-        messagesStorageService.storeMessage(userVisitPage);
+        messagesStorageService.storeMessage(userVisitsPage);
     }
 
     @RequestMapping(value = "/messages/button/click/any", method = RequestMethod.POST)

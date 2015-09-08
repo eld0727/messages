@@ -62,7 +62,7 @@ public class MessagesStorageServiceImpl implements MessagesStorageService {
             for (UserMessage message : expectedMessagesStore) {
                 if(messageChecker.check(message)) {
                     messagesToDelete.add(message);
-                    rabbitTemplate.convertAndSend(QueueNames.ALERT, new Alert(message.toString() + " just happened"));
+                    rabbitTemplate.convertAndSend(QueueNames.ALERT, new Alert(message.presentation() + " just happened"));
                 }
             }
             expectedMessagesStore.removeAll(messagesToDelete);

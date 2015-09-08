@@ -6,17 +6,17 @@ import java.io.Serializable;
 
 /**
  * Created by alex on 05.09.2015.<br/>
- * Message containing information which user visit page with messages.
+ * Message containing information which user visits page with messages.
  */
 
-public class UserVisitPage implements UserMessage, Serializable{
+public class UserVisitsPage implements UserMessage, Serializable{
 
     /**
      * user id
      */
     private final int id;
 
-    public UserVisitPage(@JsonProperty("id") int id) {
+    public UserVisitsPage(@JsonProperty("id") int id) {
         this.id = id;
     }
 
@@ -33,12 +33,12 @@ public class UserVisitPage implements UserMessage, Serializable{
 
     @Override
     public String presentation() {
-        return "User " + id + " visit page" ;
+        return "User " + id + " visits page" ;
     }
 
     @Override
     public String toString() {
-        return "UserVisitPage{" +
+        return "UserVisitsPage{" +
                 "id=" + id +
                 '}';
     }

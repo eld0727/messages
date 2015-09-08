@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import otts.test.work.messages.MessageChecker;
 import otts.test.work.messages.UserMessage;
-import otts.test.work.messages.UserVisitPage;
+import otts.test.work.messages.UserVisitsPage;
 import otts.test.work.util.QueueNames;
 
 /**
  * Created by alex on 06.09.2015.<br/>
- * Service providing listener for user visit page
+ * Service providing listener for user visits page
  */
 @Service
 public class UserVisitPageService {
@@ -20,15 +20,15 @@ public class UserVisitPageService {
 
     /**
      * Listener for {@link QueueNames#USER_VISIT_PAGE} queue
-     * @param userVisitPage message
+     * @param userVisitsPage message
      */
     @RabbitListener(queues = QueueNames.USER_VISIT_PAGE)
-    public void processAlertMessage(UserVisitPage userVisitPage) {
-        messagesStorageService.checkExpectedMessages(new UserVisitMessageChecker(userVisitPage.getId()));
+    public void processAlertMessage(UserVisitsPage userVisitsPage) {
+        messagesStorageService.checkExpectedMessages(new UserVisitMessageChecker(userVisitsPage.getId()));
     }
 
     /**
-     * Checks {@link UserVisitPage} messages of user with specified id
+     * Checks {@link UserVisitsPage} messages of user with specified id
      */
     private class UserVisitMessageChecker implements MessageChecker {
         /**
@@ -42,7 +42,7 @@ public class UserVisitPageService {
 
         @Override
         public boolean check(UserMessage message) {
-            return message.getId() == id && message instanceof UserVisitPage;
+            return message.getId() == id && message instanceof UserVisitsPage;
         }
     }
 }
